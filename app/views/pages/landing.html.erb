@@ -1,0 +1,8 @@
+<h1>Pages#landing</h1>
+
+<div style="position: relative; width: 300px; height: 300px;">
+<div style="position: relative; width: 300px; height: 300px;">
+  <% @layers.each do |layer, file| %>
+    <%= image_tag "avatars/#{layer}/#{file}", style: "position: absolute; top: 0; left: 0;" %>
+  <% end %>
+</div>
