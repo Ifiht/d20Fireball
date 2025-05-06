@@ -1,4 +1,9 @@
 //= link_tree ../images
+//= link_directory ../../../vendor/habitica-images/backgrounds .png
+//= link_directory ../../../vendor/habitica-images/customize/skin .png
+//= link_directory ../../../vendor/habitica-images/customize/hair .png
+//= link_directory ../../../vendor/habitica-images/customize/shirts .png
+//= link_directory ../../../vendor/habitica-images/gear/weapon .png
 //= link_directory ../stylesheets .css
 //= link_tree ../../javascript .js
 //= link_tree ../../../vendor/javascript .js

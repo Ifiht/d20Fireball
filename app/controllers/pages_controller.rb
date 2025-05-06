@@ -7,12 +7,5 @@ class PagesController < ApplicationController
       armor: "slim_shirt_black",
       weapon: "weapon_warrior_5"
     }
-    @layer_paths = {
-      background: "backgrounds",
-      skin: "customize/skin",
-      hair: "customize/hair",
-      armor: "customize/shirts",
-      weapon: "gear/weapon"
-    }
   end
 end

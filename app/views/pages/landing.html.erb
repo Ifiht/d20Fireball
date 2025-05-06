@@ -1,8 +1,7 @@
 <h1>Pages#landing</h1>
 
 <div style="position: relative; width: 300px; height: 300px;">
-  <% @layers.each do |layer, file| %>
-    <% folder = @layer_paths[layer] %>
-    <%= image_tag "#{layer}/#{file}.png", style: "position: absolute; top: 0; left: 0;" %>
+  <% @layers.each do |layer_type, filename| %>
+    <%= image_tag "#{filename}.png", style: "position: absolute; top: 0; left: 0;" %>
   <% end %>
 </div>

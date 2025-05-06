@@ -23,21 +23,25 @@ module D20Fireball
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    #config.assets.paths << Rails.root.join("vendor", "habitica-images", "backgrounds")
-    #config.assets.paths << Rails.root.join("vendor", "habitica-images", "customize", "beards")
-    #config.assets.paths << Rails.root.join("vendor", "habitica-images", "customize", "chairs")
-    #config.assets.paths << Rails.root.join("vendor", "habitica-images", "customize", "flowers")
-    #config.assets.paths << Rails.root.join("vendor", "habitica-images", "customize", "hair")
-    #config.assets.paths << Rails.root.join("vendor", "habitica-images", "customize", "shirts")
-    #config.assets.paths << Rails.root.join("vendor", "habitica-images", "customize", "skin")
-    #config.assets.paths << Rails.root.join("vendor", "habitica-images", "gear", "armor")
-    #config.assets.paths << Rails.root.join("vendor", "habitica-images", "gear", "back")
-    #config.assets.paths << Rails.root.join("vendor", "habitica-images", "gear", "body")
-    #config.assets.paths << Rails.root.join("vendor", "habitica-images", "gear", "events")
-    #config.assets.paths << Rails.root.join("vendor", "habitica-images", "gear", "eyewear")
-    #config.assets.paths << Rails.root.join("vendor", "habitica-images", "gear", "head")
-    #config.assets.paths << Rails.root.join("vendor", "habitica-images", "gear", "headAccessory")
-    #config.assets.paths << Rails.root.join("vendor", "habitica-images", "gear", "shield")
+    config.assets.paths << Rails.root.join("vendor", "habitica-images", "backgrounds")
+    config.assets.paths << Rails.root.join("vendor", "habitica-images", "customize", "beards")
+    config.assets.paths << Rails.root.join("vendor", "habitica-images", "customize", "chairs")
+    config.assets.paths << Rails.root.join("vendor", "habitica-images", "customize", "flowers")
+    config.assets.paths << Rails.root.join("vendor", "habitica-images", "customize", "hair")
+    config.assets.paths << Rails.root.join("vendor", "habitica-images", "customize", "shirts")
+    config.assets.paths << Rails.root.join("vendor", "habitica-images", "customize", "skin")
+    config.assets.paths << Rails.root.join("vendor", "habitica-images", "gear", "armor")
+    config.assets.paths << Rails.root.join("vendor", "habitica-images", "gear", "back")
+    config.assets.paths << Rails.root.join("vendor", "habitica-images", "gear", "body")
+    config.assets.paths << Rails.root.join("vendor", "habitica-images", "gear", "events")
+    config.assets.paths << Rails.root.join("vendor", "habitica-images", "gear", "eyewear")
+    config.assets.paths << Rails.root.join("vendor", "habitica-images", "gear", "head")
+    config.assets.paths << Rails.root.join("vendor", "habitica-images", "gear", "headAccessory")
+    config.assets.paths << Rails.root.join("vendor", "habitica-images", "gear", "shield")
+    config.assets.paths << Rails.root.join("vendor", "habitica-images", "gear", "weapon")
     config.assets.paths << Rails.root.join("vendor", "habitica-images")
+    config.assets.precompile += %w[
+      backgrounds/*.png
+    ]
   end
 end
