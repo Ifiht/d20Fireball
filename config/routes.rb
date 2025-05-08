@@ -12,4 +12,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "pages#landing"
+
+  # ...existing code...
+  get 'landing(/:shirt)', to: 'pages#landing', as: 'landing'
 end

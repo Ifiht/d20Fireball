@@ -1,7 +1,74 @@
-<h1>Pages#landing</h1>
+<h1>My Avatar</h1>
 
-<div style="position: relative; width: 141px; height: 147px;">
-  <% @layers.each do |layer_type, filename| %>
-    <%= image_tag "#{filename}.png", style: "position: absolute; top: 0; left: 0;" %>
-  <% end %>
+<div class="container">
+  <div class="equipment-menu">
+    <h2>Equipment</h2>
+    <h4>Armor</h4>
+    <%= form_tag landing_path, method: :get do %>
+      <%= hidden_field_tag :weapon, params[:weapon] %>
+      <%= select_tag :shirt, 
+          options_for_select(@available_shirts, params[:shirt]), 
+          class: "gear-select",
+          onchange: 'this.form.submit();' %>
+    <% end %>
+    <h4>Weapon</h4>
+    <%= form_tag landing_path, method: :get do %>
+      <%= hidden_field_tag :shirt, params[:shirt] %>
+      <%= select_tag :weapon, 
+          options_for_select(@available_weapons, params[:weapon]), 
+          class: "gear-select",
+          onchange: 'this.form.submit();' %>
+    <% end %>
+  </div>
+
+  <div class="character-display">
+    <div style="position: relative; width: 141px; height: 147px;">
+      <% @layers.each do |layer_type, filename| %>
+        <% if filename.present? %>
+          <%= image_tag "#{filename}.png", style: "position: absolute; top: 0; left: 0;" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
+
+<style>
+  * {
+    font-family: monospace;
+  }
+
+  .container {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .equipment-menu {
+    width: 200px;
+    padding: 1rem;
+    background: #f5f5f5;
+    border-radius: 4px;
+  }
+
+  .gear-select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 1rem;
+  }
+
+  .gear-select:hover {
+    border-color: #999;
+  }
+
+  .character-display {
+    flex: 1;
+  }
+
+  h1 {
+    margin: auto;
+    width: 50%;
+    padding-bottom: 1rem;
+  }
+</style>
