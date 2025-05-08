@@ -1,11 +1,13 @@
 <h1>My Avatar</h1>
 
 <div class="container">
-  <div class="equipment-menu">
+<%# =========== EQUIPMENT =========== #%>
+  <div class="options-menu">
     <h2>Equipment</h2>
     <h4>Armor</h4>
     <%= form_tag landing_path, method: :get do %>
       <%= hidden_field_tag :weapon, params[:weapon] %>
+      <%= hidden_field_tag :background, params[:background] %>
       <%= select_tag :shirt, 
           options_for_select(@available_shirts, params[:shirt]), 
           class: "gear-select",
@@ -14,21 +16,39 @@
     <h4>Weapon</h4>
     <%= form_tag landing_path, method: :get do %>
       <%= hidden_field_tag :shirt, params[:shirt] %>
+      <%= hidden_field_tag :background, params[:background] %>
       <%= select_tag :weapon, 
           options_for_select(@available_weapons, params[:weapon]), 
           class: "gear-select",
           onchange: 'this.form.submit();' %>
     <% end %>
   </div>
-
+<%# =========== CHARACTER DISPLAY =========== #%>
   <div class="character-display">
     <div style="position: relative; width: 141px; height: 147px;">
       <% @layers.each do |layer_type, filename| %>
         <% if filename.present? %>
-          <%= image_tag "#{filename}.png", style: "position: absolute; top: 0; left: 0;" %>
+          <% if layer_type == :background %>
+            <%= image_tag "#{filename}.png", class: "bg-layer" %>
+          <% else %>
+            <%= image_tag "#{filename}.png", class: "character-layer" %>
+          <% end %>
         <% end %>
       <% end %>
     </div>
+  </div>
+<%# =========== BACKGROUND =========== #%>
+  <div class="options-menu">
+    <h2>Attributes</h2>
+    <h4>Background</h4>
+    <%= form_tag landing_path, method: :get do %>
+      <%= hidden_field_tag :shirt, params[:shirt] %>
+      <%= hidden_field_tag :weapon, params[:weapon] %>
+      <%= select_tag :background, 
+          options_for_select(@available_backgrounds, params[:background]), 
+          class: "gear-select",
+          onchange: 'this.form.submit();' %>
+    <% end %>
   </div>
 </div>
 
@@ -40,9 +60,13 @@
   .container {
     display: flex;
     gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center;
+    padding: 1rem;
   }
 
-  .equipment-menu {
+  .options-menu {
     width: 200px;
     padding: 1rem;
     background: #f5f5f5;
@@ -64,6 +88,19 @@
 
   .character-display {
     flex: 1;
+  }
+
+  .background-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .character-layer {
+    position: absolute;
+    top: 51%;
+    left: 42%;
+    transform: translate(-50%, -50%);
   }
 
   h1 {

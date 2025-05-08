@@ -3,13 +3,14 @@ class PagesController < ApplicationController
     # Set default values
     @current_shirt = params[:shirt].presence || "slim_shirt_black"
     @current_weapon = params[:weapon].presence || "weapon_warrior_5"
+    @current_background = params[:background].presence || "background_blue"
 
     # Debug log to check values
     Rails.logger.debug "Current shirt: #{@current_shirt}"
     Rails.logger.debug "Current weapon: #{@current_weapon}"
         
     @layers = {
-      background: "background_blue",
+      background: @current_background,
       skin: "skin_c3e1dc",
       hair: "hair_bangs_1_black",
       armor: @current_shirt,
@@ -24,5 +25,6 @@ class PagesController < ApplicationController
 
     @available_shirts = AVAILABLE_SHIRTS
     @available_weapons = AVAILABLE_WEAPONS
+    @available_backgrounds = AVAILABLE_BACKGROUNDS
   end
 end
